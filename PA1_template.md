@@ -6,6 +6,12 @@ activity <- read.csv("~/Documents/R/activity.csv", header = TRUE, sep = ",", quo
          dec = ".", fill = TRUE, comment.char = "")
 attach(activity)
 ```
+
+```
+## The following objects are masked from activity (pos = 6):
+## 
+##     date, interval, steps
+```
 ## calculate the total number of steps taken per day
 
 ```r
@@ -38,30 +44,6 @@ median_number<-aggregate(steps~date,activity,median)
 mean_interval<-aggregate(steps~interval,activity,mean)
 #print(mean_interval)
 library(plotly)
-```
-
-```
-## Loading required package: ggplot2
-```
-
-```
-## 
-## Attaching package: 'plotly'
-```
-
-```
-## The following object is masked from 'package:ggplot2':
-## 
-##     last_plot
-```
-
-```
-## The following object is masked from 'package:graphics':
-## 
-##     layout
-```
-
-```r
 library(webshot)
 plot(mean_interval, type = "l",main="Time series plot",
   	xlab="interval", ylab="steps")  

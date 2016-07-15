@@ -208,6 +208,11 @@ hr {
 attach(activity)
 </code></pre>
 
+<pre><code>## The following objects are masked from activity (pos = 6):
+## 
+##     date, interval, steps
+</code></pre>
+
 <h2>calculate the total number of steps taken per day</h2>
 
 <pre><code class="r">total_number&lt;-aggregate(steps~date,activity,sum)
@@ -236,26 +241,7 @@ median_number&lt;-aggregate(steps~date,activity,median)
 <pre><code class="r">mean_interval&lt;-aggregate(steps~interval,activity,mean)
 #print(mean_interval)
 library(plotly)
-</code></pre>
-
-<pre><code>## Loading required package: ggplot2
-</code></pre>
-
-<pre><code>## 
-## Attaching package: &#39;plotly&#39;
-</code></pre>
-
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     last_plot
-</code></pre>
-
-<pre><code>## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     layout
-</code></pre>
-
-<pre><code class="r">library(webshot)
+library(webshot)
 plot(mean_interval, type = &quot;l&quot;,main=&quot;Time series plot&quot;,
     xlab=&quot;interval&quot;, ylab=&quot;steps&quot;)  
 </code></pre>
